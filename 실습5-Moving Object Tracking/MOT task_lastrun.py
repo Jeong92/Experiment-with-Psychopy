@@ -1,8 +1,8 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Tue Aug  3 15:17:02 2021
+This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
+    on 11월 29, 2021, at 21:03
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -38,7 +38,7 @@ _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
 
 # Store info about the experiment session
-psychopyVersion = '2021.1.4'
+psychopyVersion = '2021.2.3'
 expName = 'MOT task'  # from the Builder filename that created this script
 expInfo = {'participant': '', 'session': '001'}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -54,7 +54,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/hojinjeong/Google 드라이브/PsychoPy/Moving Object Tracking/MOT task_lastrun.py',
+    originPath='C:\\Users\\goran\\OneDrive\\문서\\GitHub\\Experiment-with-Psychopy\\실습5-Moving Object Tracking\\MOT task_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -80,6 +80,9 @@ if expInfo['frameRate'] != None:
 else:
     frameDur = 1.0 / 60.0  # could not measure, so guess
 
+# Setup eyetracking
+ioDevice = ioConfig = ioSession = ioServer = eyetracker = None
+
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
 
@@ -101,9 +104,9 @@ widthRatio = screenWidth/screenHeight
 widthRange = (widthRatio-circle_size)/2
 heightRange = (1-circle_size)/2
 citcle_spd = frameDur*0.5
-stim_circle = visual.Polygon(
-    win=win, name='stim_circle',
-    edges=256, size=(0.1, 0.1),
+stim_circle = visual.ShapeStim(
+    win=win, name='stim_circle', vertices=256,
+    size=(0.1, 0.1),
     ori=0.0, pos=[0,0],
     lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
     opacity=None, depth=-1.0, interpolate=True)
@@ -217,7 +220,7 @@ while continueRoutine:
         win.timeOnFlip(stim_circle, 'tStartRefresh')  # time at next scr refresh
         stim_circle.setAutoDraw(True)
     if stim_circle.status == STARTED:  # only update if drawing
-        stim_circle.setPos([circle_x, circle_y])
+        stim_circle.setPos([circle_x, circle_y], log=False)
     
     # *text_3* updates
     if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
