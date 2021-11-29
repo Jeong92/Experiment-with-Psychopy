@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Mon Nov 29 20:18:46 2021
+    on Mon Nov 29 22:29:57 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -152,7 +152,7 @@ for thisTrial in trials:
     
     # set timer
     if trials.thisN == 0:
-        timer = core.Clock()
+        timer = core.CountdownTimer(10)
     trial_key_resp.keys = []
     trial_key_resp.rt = []
     _trial_key_resp_allKeys = []
@@ -259,11 +259,10 @@ for thisTrial in trials:
     # ------Prepare to start Routine "rest"-------
     continueRoutine = True
     # update component parameters for each repeat
-    if timer.getTime() < 10:
+    if timer.getTime() > 0:
         continueRoutine  = False
     else:
         continueRoutine  = True
-        timer.reset()
     rest_key_resp.keys = []
     rest_key_resp.rt = []
     _rest_key_resp_allKeys = []
@@ -343,6 +342,8 @@ for thisTrial in trials:
     for thisComponent in restComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
+    if timer.getTime() == 10:
+        timer.reset()
     # check responses
     if rest_key_resp.keys in ['', [], None]:  # No response was made
         rest_key_resp.keys = None
