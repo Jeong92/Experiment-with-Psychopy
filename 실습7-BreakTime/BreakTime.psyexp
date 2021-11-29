@@ -60,8 +60,8 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="task_time = (util.randint(100, 300) / 100);&amp;#10;if ((trials.thisN === 0)) {&amp;#10;    timer = new core.CountdownTimer(10);&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="task_time = randint(100, 300)/100&amp;#10;&amp;#10;# set timer&amp;#10;if trials.thisN == 0:&amp;#10;    timer = core.CountdownTimer(10)" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="task_time = (util.randint(100, 300) / 100);&amp;#10;if ((trials.thisN === 0)) {&amp;#10;    timer = new core.Clock();&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="task_time = randint(100, 300)/100&amp;#10;&amp;#10;# set timer&amp;#10;if trials.thisN == 0:&amp;#10;    timer = core.Clock() # core.CountdownTimer(10) 이런 식으로도 사용 가능" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -147,15 +147,15 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="if ((timer.getTime() &gt; 0)) {&amp;#10;    continueRoutine = false;&amp;#10;} else {&amp;#10;    continueRoutine = true;&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if timer.getTime() &gt; 0:&amp;#10;    continueRoutine  = False&amp;#10;else:&amp;#10;    continueRoutine  = True" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ((timer.getTime() &lt; 10)) {&amp;#10;    continueRoutine = false;&amp;#10;} else {&amp;#10;    continueRoutine = true;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if timer.getTime() &lt; 10:&amp;#10;    continueRoutine  = False&amp;#10;else:&amp;#10;    continueRoutine  = True" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="if ((timer.getTime() === 10)) {&amp;#10;    timer.reset();&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="if timer.getTime() == 10:&amp;#10;    timer.reset()" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="if ((timer.getTime() &gt; 10)) {&amp;#10;    timer.reset();&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="if timer.getTime() &gt; 10:&amp;#10;    timer.reset()" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="rest_code" valType="code"/>
       </CodeComponent>

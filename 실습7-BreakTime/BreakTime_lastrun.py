@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.2.3),
-    on Mon Nov 29 22:29:57 2021
+    on 11월 29, 2021, at 23:40
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Volumes/GoogleDrive/내 드라이브/PsychoPy/BreakTime/BreakTime_lastrun.py',
+    originPath='C:\\Users\\goran\\OneDrive\\문서\\GitHub\\Experiment-with-Psychopy\\실습7-BreakTime\\BreakTime_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -152,7 +152,7 @@ for thisTrial in trials:
     
     # set timer
     if trials.thisN == 0:
-        timer = core.CountdownTimer(10)
+        timer = core.Clock() # core.CountdownTimer(10) 이런 식으로도 사용 가능
     trial_key_resp.keys = []
     trial_key_resp.rt = []
     _trial_key_resp_allKeys = []
@@ -259,7 +259,7 @@ for thisTrial in trials:
     # ------Prepare to start Routine "rest"-------
     continueRoutine = True
     # update component parameters for each repeat
-    if timer.getTime() > 0:
+    if timer.getTime() < 10:
         continueRoutine  = False
     else:
         continueRoutine  = True
@@ -342,7 +342,7 @@ for thisTrial in trials:
     for thisComponent in restComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    if timer.getTime() == 10:
+    if timer.getTime() > 10:
         timer.reset()
     # check responses
     if rest_key_resp.keys in ['', [], None]:  # No response was made
